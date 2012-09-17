@@ -1,0 +1,56 @@
+
+<div>
+	<span id="searchagain">
+		<span id="simage" float="left">
+			<h1>Mr. Holmes</h1>
+		</span>
+		<span id="ssearch" float="left">
+			<div>
+				<h2>Search again</h2>
+			</div>
+			<div>
+			<form action="/webs" method="post">
+			
+				<input type="textfield" name="web[word]" value= "<%= @showw %>" size="60" onfocus="this.value='' "/>
+				<input type="submit" value="search" />
+			</form>
+			</div>
+		</span>
+
+	</span>
+
+	<% if @result.count>0 %>
+	<div id="tota">
+		<div id="lefts" >
+			Results
+		</div>
+		<div id="rights" >
+			
+			<% @result.each do |post| %>
+			<a href="<%= post.url%>">
+			<div id="title">
+				<%= post.title%>
+			</div>
+			<div id="url">
+				<%= post.url %>
+			</div>
+			<div id="description">
+				<%= post.description %>
+			</div><br/>
+			
+
+			<%end%>
+			</a>
+		</div>
+	</div>
+	<%else%>
+	<div id="tota">
+		<div id="lefts" >
+			Results
+		</div>
+		<div id="rights" >
+		<h2><i>No match till now</i></h2>
+		</div>
+	</div>
+	<%end%>
+</div>

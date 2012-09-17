@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  occu: 
+  weight: 1
+  web: 
+  container: 
+
+two:
+  occu: 
+  weight: 1
+  web: 
+  container: 

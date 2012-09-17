@@ -1,0 +1,41 @@
+#total
+{
+	top: 250px;
+	left: 300px;
+
+}
+#image
+{
+	top: 0px;
+	left: 0px;
+	font-family: 'Comic Sans','cursive'
+}
+#search
+{
+	top: 70px;
+	left: 0px;
+	font-family: helvetica, arial, sans-serif;
+	padding-left: 1px;
+
+}
+#source
+{
+	top: 100px;
+
+	
+	
+}
+#text_field:hover
+{
+	
+	font-weight: italic;
+}
+div
+{
+	position: absolute;
+	width:500px;
+	padding-left: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+}
