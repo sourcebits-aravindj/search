@@ -1,2 +1,5 @@
-<h1>sourcebits website</h1>
-<%= render 'form' %>
+<div id="c">
+	<%@res.each do |re|%>
+	<%= re[:word]%>
+	<%end %>
+</div>

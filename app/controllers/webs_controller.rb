@@ -4,7 +4,13 @@ class WebsController < ApplicationController
   # GET /webs
   # GET /webs.json
   def index
-      @web = Web.new
+    str=params[:q]
+    str=str+"%"
+    @res=Web.find_by_sql("select word from webs where word like '#{str}'")
+    #@res=Web.find (:word,:conditions=> ["word like ?", str+"%"])    
+    respond_to do |format|
+      format.json { render json: @res}
+    end
   end
 
 
@@ -40,8 +46,13 @@ class WebsController < ApplicationController
     @result=[]
     word=params[:web][:word]
     word=word.split(' ')
+    word= word.map do |line|
+      line.gsub(/'/,'')
+    end
+    puts word
     i=0
     word.each do |x|
+      
       #p x
       @web=Web.find_by_sql("select id from webs where word= '#{x}'")
       #@web=Web.where("word=?",params[:web][:word])
