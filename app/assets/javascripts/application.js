@@ -12,9 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require_tree .
-function change()
-{
-	document.getElementById("hel").innerHTML="hi";
-}

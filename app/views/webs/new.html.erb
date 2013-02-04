@@ -1,98 +1,20 @@
 <%= stylesheet_link_tag 'word.css'%>
 
-	<div >
-		<div >
+	<div id="total">
+		<div id="image">
 			<h1>Mr. Holmes</h1>
 		</div>
-		<div class="input">
+		<div id="search">
 			<form action="/webs" method="post">
 			
-				<input type="textfield" name="web[word]" value="Ask Mr. Holmes"  size="60" onfocus="this.value='' " onchange="loadXMLDoc()" id="newtext"/>
-
-				
+				<input type="textfield" name="web[word]" value="Ask Mr. Holmes"  size="60" onfocus="this.value='' "/>
 				<input type="submit" value="search" />
-				<br/>
-				<select size="4" name="decision2" id="k" onclick="changeval()">
-						
-				</select>
 			</form>
 		</div>
-		<div  >
+		<div id="source" >
 			<p align="right">
 				Powered by Sourcebits
 			</p>
 				
 		</div>
 	</div>
-	<div id="aj">
-	
-	</div>
-	<script>
-function loadXMLDoc()
-{
-var xmlhttp;
-st=document.getElementById("newtext").value;
-alert(st);
-alert("hi");
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    	//alert("hi");
-    //document.getElementById("aj").innerHTML=xmlhttp.responseText;
-    	
-    	n=xmlhttp.responseText;
-    	var y=[];
-    	i=0;
-    	fromObj=document.getElementById("k");
-    	for (var selIndex = fromObj.length - 1; selIndex >= 0; selIndex--) 
-	   { 
-	        // Is this option selected? 
-	        if (fromObj.options[selIndex]) 
-	        { 
-	            // Delete the option in the first select box. 
-	            fromObj[selIndex] = null; 
-	        } 
-	    }
-    	JSON.parse(n, function(key,value)
-	    		{
-	    			if(typeof value=="string")
-	    			{
-	    				var anOption = document.createElement("OPTION"); 
-						document.getElementById("k").add(anOption); 
-						anOption.innerText = value; 
-						anOption.Value = ""+i;					
-	    				y[i]= value;
-	    				i=i+1;
-	    			}
-    			}
-
-    		);
-    	i=0;
-    	
-
-    	
-    }
-  }
-xmlhttp.open("GET","/webs?q="+st,true);
-xmlhttp.send();
-}
-function changeval()
-{
-	
-	var x=document.getElementById("k").selectedIndex;
-	
-	var y=document.getElementById("k").options[x].value;
-	alert(y);
-	document.getElementById("newtext").value=y;
-}
-</script>
-	
